@@ -1,0 +1,9 @@
+temp_dir/
+tmp/
+*__pycache__/
+data/*
+!data/*.md
+mlruns/
+*cookies*
+*.DS_Store
+model_weights/*.pth

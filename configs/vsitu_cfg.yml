@@ -1,0 +1,103 @@
+ds:
+  vsitu:
+    name: 'vid_situ'
+    frames_11_dir: './data/vsitu_11_frames_per_vid/'
+    split_files_lb:
+      train: './data/vidsitu_annotations/split_files/vseg_split_train_lb_new.json'
+      valid: './data/vidsitu_annotations/split_files/vseg_split_valid_lb_new.json'
+      test_verb: './data/vidsitu_annotations/split_files/vseg_split_testvb_lb.json'
+      test_srl: './data/vidsitu_annotations/split_files/vseg_split_testsrl_lb.json'
+      test_evrel: './data/vidsitu_annotations/split_files/vseg_split_testevrel_lb.json'
+    vinfo_files_lb:
+      train: './data/vidsitu_annotations/vinfo_files/vinfo_train_lb.json'
+      valid: './data/vidsitu_annotations/vinfo_files/vinfo_valid_lb.json'
+      test_verb: './data/vidsitu_annotations/vinfo_files/vinfo_testvb_lb.json'
+      test_srl: './data/vidsitu_annotations/vinfo_files/vinfo_testsrl_lb.json'
+      test_evrel: './data/vidsitu_annotations/vinfo_files/vinfo_testevrel_lb.json'
+    vsitu_ann_files_lb:
+      train: './data/vidsitu_annotations/vseg_ann_files/vsann_train_lb.json'
+      valid: './data/vidsitu_annotations/vseg_ann_files/vsann_valid_lb.json'
+      test_verb: './data/vidsitu_annotations/vseg_ann_files/vsann_testvb_lb.json'
+      test_srl: './data/vidsitu_annotations/vseg_ann_files/vsann_testsrl_lb.json'
+      test_evrel: './data/vidsitu_annotations/vseg_ann_files/vsann_testevrel_lb.json'
+    vocab_files:
+      verb_id_vocab: './data/vsitu_vocab/verb_id_vocab.pkl'
+      new_gpt2_vb_arg_vocab: './data/vsitu_vocab/bpe_with_seps_vb_arg_vocab.pkl'
+    vsitu_frm_feats_dir: './features/vsitu_vid_feats/sfast_kpret_best_recall_epoch_5'
+    vsitu_objects_11_frames_dir: './features/vsitu_all_11_frames_feats/feats_bb'
+    vsitu_GT_ann_grounding: './data/vidsitu_annotations/vseg_ann_files/GT_grounding.json'
+    num_ev: 5
+    num_frms: 11
+    num_objs_per_frm: 15
+    max_num_roles_per_event: 6
+    d_vid_emb: 2304
+    d_obj_emb: 2048
+  trn_shuffle: true
+  val_set_type: 'lb' 
+
+
+task_type: 'grounded_vb_srl_GT_role' # one of ["grounded_srl_GT_vbrole", "grounded_vb_srl_GT_role", "grounded_end-to-end"]
+loss_keys: ['loss_SRL', 'loss_vb']
+
+expm:
+  exp_name: 'experiment1'
+  run_id: ''
+  st_time: ''
+
+misc:
+  tmp_path: './tmp'
+
+train:
+  lr: 1e-4
+  epochs: 15
+  bs: 16
+  nw: 4
+  bsv: 16
+  nwv: 4
+  ns: 4
+  resume: false
+  resume_path: "./tmp/model_epochs/experiment1/mdl_ep_11.pth"
+  load_opt: true
+  load_normally: true
+  strict_load: true
+  use_reduce_lr_plateau: false
+  verbose: false
+  save_mdl_epochs: true
+  visualise_bboxes: false
+
+log:
+  deb_it: 2
+
+debug_mode: False
+local_rank: 0
+do_dist: False
+do_dp: False
+num_gpus: 1
+only_val: false
+only_test: false
+test_dl_name: 'test'
+val_dl_name: 'valid'
+run_final_val: true
+overfit_batch: false
+DIST_BACKEND: "nccl"
+SHARD_ID: 0
+Temp: 1.0
+
+transformer_VO_RO:
+  d_vo_enc: 1024
+  d_ro_dec: 1024 
+  nhead: 8
+  num_encoder_layers: 3 
+  num_decoder_layers: 3
+  dim_feedforward: 2048 
+  dropout: 0.15 
+  activation: 'relu'
+
+transformer_caption:
+  d_cap_dec: 1024
+  nhead: 8
+  num_caption_decoder_layers: 3
+  d_feedforward: 2048 
+  dropout: 0.15 
+  max_cap_len: 15
+  activation: 'relu'  
