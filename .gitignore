@@ -7,3 +7,4 @@ mlruns/
 *cookies*
 *.DS_Store
 model_weights/*.pth
+.vscode/

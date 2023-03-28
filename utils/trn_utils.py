@@ -2,6 +2,7 @@
 Utility functions
 """
 
+
 from pipes import Template
 from typing import Dict, List, Optional, Union, Callable
 import torch
@@ -22,6 +23,7 @@ import mlflow
 from utils.dat_utils import DataWrap
 from yacs.config import CfgNode as CN
 from vidsitu_code.extended_config import CfgProcessor
+import pdb
 
 
 def move_to(obj, device):
@@ -550,20 +552,20 @@ class Learner:
 
             if 'loss_vb' not in self.loss_keys:
                 comment_to_print = \
-                    f"Total Loss {loss: .4f} | Smooth Total Loss  {trn_loss.smooth_all: .4f} | SRL_loss {out_loss['loss_SRL']: .4f}"
+                    f"Total Loss {loss: .4f} | Smooth Total Loss  {trn_loss.smooth_all(): .4f} | SRL_loss {out_loss['loss_SRL']: .4f}"
 
             if 'loss_vb' in self.loss_keys and 'loss_role' not in self.loss_keys:
                 comment_to_print = \
-                    f"Total Loss {loss: .4f} | Smooth Total Loss  {trn_loss.smooth_all: .4f} | SRL_loss {out_loss['loss_SRL']: .4f} | Loss_Vb {out_loss['loss_vb']: .4f} "
+                    f"Total Loss {loss: .4f} | Smooth Total Loss  {trn_loss.smooth_all(): .4f} | SRL_loss {out_loss['loss_SRL']: .4f} | Loss_Vb {out_loss['loss_vb']: .4f} "
 
             if 'loss_vb' in self.loss_keys and 'loss_role' in self.loss_keys:
                 comment_to_print = \
-                    f"Total Loss {loss: .4f} | Smooth Total Loss  {trn_loss.smooth_all: .4f} | SRL_loss {out_loss['loss_SRL']: .4f} | Loss_Vb {out_loss['loss_vb']: .4f} | Loss_Role {out_loss['loss_role']: .4f}"
+                    f"Total Loss {loss: .4f} | Smooth Total Loss  {trn_loss.smooth_all(): .4f} | SRL_loss {out_loss['loss_SRL']: .4f} | Loss_Vb {out_loss['loss_vb']: .4f} | Loss_Role {out_loss['loss_role']: .4f}"
                 
             if self.trn_met:
                 metric = self.eval_fn(out, batch)
                 trn_acc.add_value(metric)
-                comment_to_print += f" | AccB {trn_acc.smooth_all: .4f}"
+                comment_to_print += f" | AccB {trn_acc.smooth_all(): .4f}"
             mb.child.comment = comment_to_print
             if self.num_it % self.cfg.log.deb_it == 0:
                 self.logger.debug(f"Num_it {self.num_it} {trn_loss.tostring()}")
