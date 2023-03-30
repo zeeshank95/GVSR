@@ -15,7 +15,6 @@ from vidsitu_code.extended_config import CfgProcessor
 from vidsitu_code.mdl_selector import get_mdl_loss_eval
 from vidsitu_code.dat_loader import get_data
 import resource
-import pdb
 import warnings
 warnings.simplefilter("ignore", category=DeprecationWarning)
 
@@ -105,7 +104,6 @@ def main_fn(cfg):
             )
             print(val_loss)
             print(val_acc)
-            # print(print('Iou_raw: {}, Iou@30: {}, Iou@50: {}'.format(ious[0], ious[1], ious[2])))
         else:
             pass
     else:

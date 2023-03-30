@@ -10,7 +10,6 @@ from torch.utils.data.sampler import Sampler
 from torch.utils.data.distributed import DistributedSampler
 from dataclasses import dataclass
 from typing import Dict, Optional, Union, List, Tuple
-
 # from fairseq.data import Dictionary
 import numpy as np
 import json
@@ -276,36 +275,6 @@ def pad_words_new(
     return sent_out_enc, attn_mask
 
 
-# def add_prev_tokens(
-#     inp_dict: Dict[str, torch.tensor], key: str, pad_token: int, bos_token: int
-# ) -> Dict[str, torch.tensor]:
-#     """
-#     Create prev tokens for the given dictionary key
-#     """
-#     src_toks = inp_dict[key]
-#     # prev_output_tokens = src_toks.new_full(src_toks.shape, fill_value=pad_token)
-#     # prev_output_tokens[..., 0] = bos_token
-#     # prev_output_tokens[..., 1:] = src_toks[..., :-1].clone()
-#     prev_output_tokens = add_prev_tokens_tensor(
-#         src_tensor=src_toks, pad_token=pad_token, bos_token=bos_token
-#     )
-#     out_key = f"prev_out_{key}"
-#     inp_dict[out_key] = prev_output_tokens
-#     return
-
-
-# def add_prev_tokens_tensor(
-#     src_tensor: torch.tensor, pad_token: int, bos_token: int
-# ) -> torch.tensor:
-#     """
-#     Create prev tokens for the given dictionary key
-#     """
-#     prev_output_tokens = src_tensor.new_full(src_tensor.shape, fill_value=pad_token)
-#     prev_output_tokens[..., 0] = bos_token
-#     prev_output_tokens[..., 1:] = src_tensor[..., :-1].clone()
-#     return prev_output_tokens
-
-
 def read_file_with_assertion(fpath: str, read_type: str = "r", reader: str = "json"):
     fpath1 = Path(fpath)
     if read_type == "r":
@@ -316,7 +285,7 @@ def read_file_with_assertion(fpath: str, read_type: str = "r", reader: str = "js
             return file_data
         elif reader == "pickle":
             with open(fpath1, "rb") as f:
-                file_data = pickle.load(f)
+                file_data = pickle.load(f)                
             return file_data
         elif reader == "numpy":
             return np.load(fpath1)
