@@ -36,8 +36,3 @@ Please refer to [Miniconda](https://docs.conda.io/en/latest/miniconda.html) for 
     cd $ROOT/coval
     pip install -e .
     ```
-    + fairseq:
-    ```
-    cd $ROOT/fairseq
-    pip install -e .
-    ```

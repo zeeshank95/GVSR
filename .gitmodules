@@ -9,7 +9,3 @@
 	path = coval
 	url = https://github.com/TheShadow29/coval.git
 	branch = coval_29Oct20
-[submodule "fairseq"]
-	path = fairseq
-	url = https://github.com/TheShadow29/fairseq.git
-	branch = fseq_master_13Oct20

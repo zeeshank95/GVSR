@@ -240,7 +240,7 @@ class EvalB_Gen():
 
             for ev_i, ev in enumerate(Batch):
                 vb_id = inp['verbs_all_ev'][B_i][ev_i]
-                verb = vb_vocab[vb_id] 
+                verb = vb_vocab[vb_id.item()] 
                 ev_i+=1
                 key_ev = "Ev{}".format(ev_i)
                 batch_dct['vb_output'][key_ev] = {}

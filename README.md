@@ -15,7 +15,7 @@ GVSR is a structured dense video understanding task. It is built on top of [VidS
 This repository includes:
 
 1. Instructions to download the precomputed object and video features of the VidSitu Dataset. 
-2. Instructures for Installing the GVSR dependencies.
+2. Instructions for Installing the GVSR dependencies.
 3. Code for both the frameworks of GVSR. (i) With ground truth roles and (ii) End-to-end GVSR.
 
 # Download
@@ -48,7 +48,7 @@ Please see [INSTALL.md](./INSTALL.md) for setting up the conda environment and i
 
 Use the option `grounded_vb_srl_GT_role` for the `--task_type` argument, this means predicting verbs and semantic role captions provided the ground truth roles.
 
-After each epoch, evalutation is performned for the 3 tasks: 1)Verb prediction 2) SRL(caption generation) and 3) Grounded SRL. 
+After each epoch, evalutation is performned for the 3 tasks: 1) Verb prediction 2) SRL(caption generation) and 3) Grounded SRL. 
 
 - Run `CUDA_VISIBLE_DEVICES=0 python main_dist.py experiment1 --task_type=grounded_vb_srl_GT_role  --train.bs=16 --train.bsv=16`
 

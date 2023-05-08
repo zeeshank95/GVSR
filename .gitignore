@@ -8,3 +8,4 @@ mlruns/
 *.DS_Store
 model_weights/*.pth
 .vscode/
+run_command.txt

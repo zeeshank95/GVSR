@@ -4,6 +4,7 @@ import torch
 from torch.utils.data import Dataset
 from yacs.config import CfgNode as CN
 from typing import List, Dict
+from data.vsitu_vocab.create_vb_voc import vb_vocab
 from munch import Munch
 import numpy as np
 from collections import Counter
@@ -58,9 +59,11 @@ class VsituDS(Dataset):
 
     def set_comm_args(self):
 
-        self.comm.vb_id_vocab = read_file_with_assertion(
-            self.cfg.vocab_files.verb_id_vocab, reader="pickle"
-        )
+        # self.comm.vb_id_vocab = read_file_with_assertion(
+        #     self.cfg.vocab_files.verb_id_vocab, reader="pickle"
+        # )
+
+        self.comm.vb_id_vocab = vb_vocab()
 
         self.comm.gpt2_hf_tok = read_file_with_assertion(
             self.cfg.vocab_files.new_gpt2_vb_arg_vocab, reader="pickle"
