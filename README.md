@@ -5,7 +5,7 @@
 ![PyTorch](https://img.shields.io/badge/pytorch-1.5-yellow)
 [![Arxiv](https://img.shields.io/badge/Arxiv-2210.10828-purple)](https://arxiv.org/abs/2210.10828)
 
-**[Grounded Video Situation Recognition](https://arxiv.org/abs/2104.00990)**<br>
+**[Grounded Video Situation Recognition](https://arxiv.org/abs/2210.10828)**<br>
 [Zeeshan Khan](https://zeeshank95.github.io), [C V Jawahar](https://faculty.iiit.ac.in/~jawahar/), [Makarand Tapaswi](https://makarandtapaswi.github.io)
 
 GVSR is a structured dense video understanding task. It is built on top of [VidSitu](https://arxiv.org/abs/2104.00990). A large scale dataset containing videos of 10 seconds from complex movie scenes. Dense video understanding requires answering several questions such as who is doing what to whom, with what, how, and where. GVSR affords this by recognising the action verbs, their corresponding roles, and localising them in the spatio-temporal domain in a weakly supervised setting, i.e. the supervision for grounding is provided only in form of role-captions without any ground truth bounding boxes.
