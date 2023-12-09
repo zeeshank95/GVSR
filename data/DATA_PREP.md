@@ -62,7 +62,7 @@ and place them under `data/vsitu_vocab`
     ```
     GVSR uses the Slowfast features, place them in `features/vsitu_vid_feats`.
 
-5. Download the pre-extracted object features from here: [One drive link object features](https://iiitaphyd-my.sharepoint.com/:f:/g/personal/zeeshan_khan_research_iiit_ac_in/EqAyYmVEEZ1GlfL7qNXf90gBT_cc-kNzj7JQfDOuUD8_LA?e=HzU1PQ)
+5. Download the pre-extracted object features from here: [One drive link object features](https://iiitaphyd-my.sharepoint.com/:u:/g/personal/lakshmipathi_balaji_research_iiit_ac_in/ETGCnb58rORJnZuyIJ-dLjYBIKx1PExkx5etvr2exBcHOA?e=YoELTZ&download=1)
     Object features are provided for the top 15 objects from all the 11 frames that are subsapled at 1 FPS from each video.
 
     Alternatively you can setup the Bottom-up-top-down attention's Faster RCNN provided by https://github.com/airsplay/py-bottom-up-attention and extract the object features for the subsampled frames.
